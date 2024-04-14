@@ -1,3 +1,4 @@
+import { MdOutlineRealEstateAgent } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -10,7 +11,7 @@ const Navbar = () => {
         <NavLink to="/about">About</NavLink>
       </li>
       <li>
-        <NavLink to="/career">Career</NavLink>
+        <NavLink to="/career">Update Profile</NavLink>
       </li>
       <li>
         <NavLink to="/login">Login</NavLink>
@@ -44,24 +45,19 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
+        <Link
+          to="/"
+          className=" flex items-center text-xl md:text-3xl font-platypi"
+        >
+          <MdOutlineRealEstateAgent></MdOutlineRealEstateAgent>
+          <span className="text-red-500">Luxury</span>Estate
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-ghost btn-circle avatar"
-        >
-          <div className="w-10 rounded-full">
-            <img alt="Tailwind CSS Navbar component" src="" />
-          </div>
-        </div>
-
-        <Link to="/login">
-          <button className="btn">Login</button>
-        </Link>
+        <a className="btn">Button</a>
       </div>
     </div>
   );
