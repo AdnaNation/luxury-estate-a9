@@ -1,10 +1,11 @@
+import "animate.css";
 const Banner = () => {
   return (
     <div>
       <div className="carousel w-full">
         <div
           id="slide1"
-          className="carousel-item relative w-full h-[200px] md:h-[350px]"
+          className="carousel-item relative w-full h-[200px] md:h-[350px] mt-1"
         >
           <div
             className="hero"
@@ -110,7 +111,7 @@ const Banner = () => {
         </div>
       </div>
 
-      <section className=" bg-stone-700 text-gray-50  md:max-w-2xl mx-auto md:-mt-20 relative">
+      <section className="animate__animated animate__backInDown bg-stone-700 text-gray-50  md:max-w-2xl mx-auto md:-mt-20 relative rounded-md">
         <div className=" mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3">
           <div className="flex flex-col justify-start m-2 lg:m-6">
             <p className="text-2xl font-bold leading-none lg:text-4xl">50K+</p>

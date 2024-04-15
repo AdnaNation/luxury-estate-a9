@@ -44,7 +44,7 @@
     "segment_name": "Luxury",
     "description": "Step back in time and own a piece of history with this magnificent French chateau. This grand estate features exquisitely detailed interiors, sprawling manicured gardens, and a rich history dating back centuries.",
     "price": "$15,000,000",
-    "Status": "Sale",
+    "Status": "Rent",
     "Area": "20,000 sq ft",
     "location": "French countryside",
     "facilities": [
@@ -77,11 +77,12 @@
   },
   {
     "image": "https://i.ibb.co/ZxT9Nhv/penthouse.jpg",
+    "estate_title": "Luxury Penthouse",
     "id": 5,
     "segment_name": "Luxury",
     "description": "Live above it all in this stunning penthouse apartment. Enjoy unparalleled panoramic city views, a spacious private terrace, and luxurious finishes throughout. Perfect for entertaining or simply relaxing in style.",
     "price": "$25,000,000",
-    "Status": "Sale",
+    "Status": "Rent",
     "Area": "5,000 sq ft",
     "location": "New York City, New York",
     "facilities": [

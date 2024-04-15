@@ -1,15 +1,15 @@
 import { useLoaderData } from "react-router-dom";
-import Navbar from "../Shared/Navbar/Navbar";
 import Banner from "./Banner";
 import Estates from "./Estates";
+import Team from "./Team";
 
 const Home = () => {
   const estates = useLoaderData();
   return (
     <div className="">
-      <Navbar></Navbar>
       <Banner></Banner>
       <Estates estates={estates}></Estates>
+      <Team></Team>
     </div>
   );
 };

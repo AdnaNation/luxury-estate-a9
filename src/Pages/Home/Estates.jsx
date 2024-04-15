@@ -1,27 +1,36 @@
 import "animate.css";
+import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const Estates = ({ estates }) => {
+  const { id } = estates;
   console.log(estates);
   return (
     <div className="animate__animated animate__backInDown text-center mt-6">
       <h2 className=" text-xl md:text-3xl font-platypi underline ">
         Luxury Estates
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
         {estates.map((estate) => (
-          <div key={estate.id} className="card bg-base-100 shadow-xl">
-            <figure className="">
-              <img
-                src={estate.image}
-                alt="Shoes"
-                className="rounded-xl w-full h-[220px]"
-              />
-            </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Buy Now</button>
+          <div key={estate.id} className=" mx-auto p-1 rounded-md shadow-xl">
+            <div className="flex flex-col  mx-auto rounded">
+              <img src={estate.image} className="h-80  rounded-lg" />
+              <div className="md:h-60 -mt-16 space-y-6 rounded-2xl bg-blue-950 text-gray-50 mx-4">
+                <div className="">
+                  <a className="inline-block text-2xl font-semibold sm:text-3xl">
+                    {estate.estate_title}
+                  </a>
+                  <p className="text-lg">Location: {estate.location}</p>
+                </div>
+                <div className="dark:text-gray-800 text-md flex justify-between">
+                  <p className="bg-gray-500 p-1 rounded-md">{estate.Area}</p>
+                  <p className="bg-gray-500 p-1 rounded-md"> {estate.price}</p>
+                  <p className="bg-gray-500 p-1 rounded-md">
+                    For {estate.Status}
+                  </p>
+                </div>
+                <Link to={`/estates/${id}`} className="btn-secondary btn">
+                  View Property
+                </Link>
               </div>
             </div>
           </div>

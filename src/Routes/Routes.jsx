@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layouts/Root";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import EstateDetails from "../Pages/EstateDetails/EstateDetails";
 import Home from "../Pages/Home/Home";
 
 const router = createBrowserRouter([
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () => fetch("/estates.json"),
+      },
+      {
+        path: "/estates/:id",
+        element: <EstateDetails></EstateDetails>,
       },
     ],
   },
