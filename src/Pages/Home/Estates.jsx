@@ -2,8 +2,6 @@ import "animate.css";
 import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const Estates = ({ estates }) => {
-  const { id } = estates;
-  console.log(estates);
   return (
     <div className="animate__animated animate__backInDown text-center mt-6">
       <h2 className=" text-xl md:text-3xl font-platypi underline ">
@@ -28,7 +26,7 @@ const Estates = ({ estates }) => {
                     For {estate.Status}
                   </p>
                 </div>
-                <Link to={`/estates/${id}`} className="btn-secondary btn">
+                <Link to={`/estate/${estate.id}`} className="btn-secondary btn">
                   View Property
                 </Link>
               </div>
