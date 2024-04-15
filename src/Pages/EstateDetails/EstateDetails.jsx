@@ -1,3 +1,4 @@
+import "animate.css";
 import { CiMap } from "react-icons/ci";
 import { MdPlace } from "react-icons/md";
 import { useLoaderData, useParams } from "react-router-dom";
@@ -19,7 +20,7 @@ const EstateDetails = () => {
   } = estate;
 
   return (
-    <div className="p-5 mx-auto   dark:bg-gray-100 dark:text-gray-800">
+    <div className="animate__animated animate__backInDown p-5 mx-auto   dark:bg-gray-100 dark:text-gray-800">
       <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
         <div className="text-lg font-platypi font-bold max-w-36 -mb-16 relative">
           <p className="bg-yellow-400 mb-1 rounded-md">For {Status}</p>
