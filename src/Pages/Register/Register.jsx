@@ -1,11 +1,12 @@
 import "animate.css";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [registerError, setRegisterError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -44,6 +45,8 @@ const Register = () => {
       .then((result) => {
         console.log(result.user);
         setSuccess("You have registered successfully");
+
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
