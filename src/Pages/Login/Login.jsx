@@ -1,15 +1,17 @@
 import "animate.css";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const { signIn, googleSignIn, setUser } = useContext(AuthContext);
+  const { signIn, googleSignIn, setUser, githubSignIn } =
+    useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const [loginError, setLoginError] = useState("");
   const [success, setSuccess] = useState("");
@@ -42,6 +44,21 @@ const Login = () => {
 
   const handleGoogleSingIn = () => {
     googleSignIn(googleProvider)
+      .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        setUser(loggedInUser);
+        setSuccess("You have logged in successfully");
+        // navigate after login
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleGithubSignIn = () => {
+    githubSignIn(githubProvider)
       .then((result) => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
@@ -130,7 +147,11 @@ const Login = () => {
           </svg>
         </button>
 
-        <button aria-label="Log in with GitHub" className="p-3 rounded-sm">
+        <button
+          onClick={handleGithubSignIn}
+          aria-label="Log in with GitHub"
+          className="p-3 rounded-sm"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"

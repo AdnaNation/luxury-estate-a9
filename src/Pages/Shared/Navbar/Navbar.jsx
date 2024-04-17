@@ -62,22 +62,35 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button onClick={handleSignOut} className="btn">
-            Sign Out
-          </button>
+          <div className="flex gap-3 items-center">
+            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+              <img
+                alt=""
+                className="w-8 h-8 md:w-10 md:h-10 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 dark:ring-violet-600 dark:ring-offset-gray-100 "
+                src={user.photoURL}
+              />
+            </div>
+
+            <button
+              onClick={handleSignOut}
+              className="btn btn-secondary p-1 md:p-2"
+            >
+              Log Out
+            </button>
+          </div>
         ) : (
           <Link to="/login">
-            <button className="btn">Login</button>
+            <button className="btn btn-secondary p-1 md:p-2">Login</button>
           </Link>
         )}
       </div>
-      {user && (
+      {/* {user && (
         <div>
           <p>User : {user.displayName}</p>
           <h3>Email: {user.email}</h3>
           <img src={user.photoURL} alt="" />
         </div>
-      )}
+      )} */}
     </div>
   );
 };
