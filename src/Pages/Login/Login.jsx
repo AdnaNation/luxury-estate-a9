@@ -22,7 +22,6 @@ const Login = () => {
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
 
     // reset error or success
     setLoginError("");
@@ -46,7 +45,6 @@ const Login = () => {
     googleSignIn(googleProvider)
       .then((result) => {
         const loggedInUser = result.user;
-        console.log(loggedInUser);
         setUser(loggedInUser);
         setSuccess("You have logged in successfully");
         // navigate after login
@@ -61,7 +59,6 @@ const Login = () => {
     githubSignIn(githubProvider)
       .then((result) => {
         const loggedInUser = result.user;
-        console.log(loggedInUser);
         setUser(loggedInUser);
         setSuccess("You have logged in successfully");
         // navigate after login

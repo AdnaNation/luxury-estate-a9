@@ -10,7 +10,6 @@ const UpdateProfile = () => {
   const handleSave = async () => {
     try {
       await updateProfile(user, { displayName: name, photoURL });
-      console.log("Profile updated successfully!");
     } catch (error) {
       console.error("Error updating profile:", error);
     }

@@ -6,7 +6,6 @@ import { useLoaderData, useParams } from "react-router-dom";
 const EstateDetails = () => {
   const { id } = useParams();
   const estates = useLoaderData();
-  console.log(estates);
   const estate = estates.find((estate) => estate.id == id);
   const {
     image,
