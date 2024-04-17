@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useRouteError } from "react-router-dom";
 
 export default function ErrorPage() {
@@ -6,6 +7,9 @@ export default function ErrorPage() {
 
   return (
     <div id="error-page">
+      <Helmet>
+        <title>Luxury Estate | Error</title>
+      </Helmet>
       <section className="flex items-center h-full p-16 dark:bg-gray-50 dark:text-gray-800">
         <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
           <div className="max-w-md text-center">

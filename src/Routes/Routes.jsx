@@ -2,9 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layouts/Root";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import EstateDetails from "../Pages/EstateDetails/EstateDetails";
+import HelpCenter from "../Pages/HelpCenter/HelpCenter";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -34,6 +36,22 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/update",
+        element: (
+          <PrivateRoute>
+            <UpdateProfile></UpdateProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/help",
+        element: (
+          <PrivateRoute>
+            <HelpCenter></HelpCenter>,
+          </PrivateRoute>
+        ),
       },
     ],
   },

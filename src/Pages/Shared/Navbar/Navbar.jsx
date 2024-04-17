@@ -14,11 +14,19 @@ const Navbar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
+      <li>
+        <NavLink to="/features">Features</NavLink>
+      </li>
 
       {user && (
-        <li>
-          <NavLink to="/update">Update Profile</NavLink>
-        </li>
+        <>
+          <li>
+            <NavLink to="/update">Update Profile</NavLink>
+          </li>
+          <li>
+            <NavLink to="/help">Help Center</NavLink>
+          </li>
+        </>
       )}
     </>
   );
@@ -73,14 +81,16 @@ const Navbar = () => {
 
             <button
               onClick={handleSignOut}
-              className="btn btn-secondary p-1 md:p-2"
+              className="btn bg-blue-950 text-white p-1 md:p-2"
             >
               Log Out
             </button>
           </div>
         ) : (
           <Link to="/login">
-            <button className="btn btn-secondary p-1 md:p-2">Login</button>
+            <button className="btn bg-blue-950 text-white p-1 md:p-2">
+              Login
+            </button>
           </Link>
         )}
       </div>

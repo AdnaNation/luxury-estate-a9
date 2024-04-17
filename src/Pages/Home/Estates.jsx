@@ -19,14 +19,20 @@ const Estates = ({ estates }) => {
                   </a>
                   <p className="text-lg">Location: {estate.location}</p>
                 </div>
-                <div className="dark:text-gray-800 text-md flex justify-between">
-                  <p className="bg-gray-500 p-1 rounded-md">{estate.Area}</p>
-                  <p className="bg-gray-500 p-1 rounded-md"> {estate.price}</p>
-                  <p className="bg-gray-500 p-1 rounded-md">
+                <div className="text-white text-md flex justify-between">
+                  <p className="bg-purple-950 p-1 rounded-md">{estate.Area}</p>
+                  <p className="bg-purple-950 p-1 rounded-md">
+                    {" "}
+                    {estate.price}
+                  </p>
+                  <p className="bg-purple-950 p-1 rounded-md">
                     For {estate.Status}
                   </p>
                 </div>
-                <Link to={`/estate/${estate.id}`} className="btn-secondary btn">
+                <Link
+                  to={`/estate/${estate.id}`}
+                  className="bg-purple-950 text-white btn border border-purple-800"
+                >
                   View Property
                 </Link>
               </div>

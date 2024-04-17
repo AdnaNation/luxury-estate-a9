@@ -2,10 +2,13 @@ import "animate.css";
 import { updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
+  const navigate = useNavigate();
   const { createUser, logOut } = useContext(AuthContext);
 
   const [registerError, setRegisterError] = useState("");
@@ -57,6 +60,8 @@ const Register = () => {
         setSuccess("You have registered successfully, Please Log in");
         // location.reload();
         logOut().then().catch();
+        toast("You have successfully registered, please login");
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error);
@@ -141,6 +146,7 @@ const Register = () => {
           Login
         </Link>
       </p>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

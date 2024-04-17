@@ -16,6 +16,8 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [name, setName] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -42,6 +44,8 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("user in the auth state", currentUser);
       setUser(currentUser);
+      setPhotoURL(currentUser.photoURL);
+      setName(currentUser.displayName);
       setLoading(false);
     });
     return () => {
@@ -58,6 +62,10 @@ const AuthProvider = ({ children }) => {
     loading,
     googleSignIn,
     githubSignIn,
+    name,
+    setName,
+    setPhotoURL,
+    photoURL,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

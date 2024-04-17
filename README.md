@@ -1,8 +1,17 @@
-# React + Vite
+# Luxury Estate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [ Live Link ](https://assingment09-luxury-estate.web.app)
 
-Currently, two official plugins are available:
+Click here for live site: [https://assingment09-luxury-estate.web.app](https://assingment09-luxury-estate.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- This website shows the real estate provide to customer.
+
+- It shows all the available property in the home page.
+- If you click view property button it will navigate you to estate details page.
+- Where you can see the details about your selected card.
+- Here is a update profile page which can only be seen after you log in.
+- I implemented the login and register page too.
+
+* I implemented these packages.
+
+- Animate.css
