@@ -15,9 +15,11 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
 
-      <li>
-        <NavLink to="/career">Update Profile</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/update">Update Profile</NavLink>
+        </li>
+      )}
     </>
   );
   return (
@@ -69,6 +71,13 @@ const Navbar = () => {
           </Link>
         )}
       </div>
+      {user && (
+        <div>
+          <p>User : {user.displayName}</p>
+          <h3>Email: {user.email}</h3>
+          <img src={user.photoURL} alt="" />
+        </div>
+      )}
     </div>
   );
 };

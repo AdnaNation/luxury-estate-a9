@@ -1,18 +1,18 @@
 import "animate.css";
+import { updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { createUser, logOut } = useContext(AuthContext);
+
   const [registerError, setRegisterError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log(e.currentTarget);
     const form = new FormData(e.currentTarget);
 
     const name = form.get("name");
@@ -44,9 +44,19 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        setSuccess("You have registered successfully");
+        // update profile
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            console.log("profile updated");
+          })
+          .catch();
 
-        navigate("/");
+        setSuccess("You have registered successfully, Please Log in");
+        // location.reload();
+        logOut().then().catch();
       })
       .catch((error) => {
         console.log(error);

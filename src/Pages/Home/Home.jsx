@@ -5,6 +5,7 @@ import Team from "./Team";
 
 const Home = () => {
   const estates = useLoaderData();
+
   return (
     <div className="">
       <Banner></Banner>
