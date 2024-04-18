@@ -3,8 +3,6 @@ import { updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
@@ -45,21 +43,17 @@ const Register = () => {
     // create user
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
-        // update profile
         updateProfile(result.user, {
           displayName: name,
           photoURL: photo,
         })
           .then(() => {
-            console.log("profile updated");
+            console.log("registered");
           })
           .catch();
 
         setSuccess("You have registered successfully, Please Log in");
-        // location.reload();
         logOut().then().catch();
-        toast("You have successfully registered, please login");
         navigate("/login");
       })
       .catch((error) => {
@@ -68,7 +62,7 @@ const Register = () => {
       });
   };
   return (
-    <div className="min-h-screen py-4 animate__animated animate__backInUp">
+    <div className="min-h-screen py-4 animate__animated animate__pulse">
       <h2 className="text-3xl my-10 text-center font-platypi">
         Please Register
       </h2>
@@ -145,7 +139,6 @@ const Register = () => {
           Login
         </Link>
       </p>
-      <ToastContainer></ToastContainer>
     </div>
   );
 };

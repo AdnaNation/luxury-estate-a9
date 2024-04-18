@@ -1,6 +1,7 @@
 import "animate.css";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -10,6 +11,7 @@ const Login = () => {
     useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
@@ -18,7 +20,6 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(e.currentTarget);
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
@@ -69,7 +70,8 @@ const Login = () => {
       });
   };
   return (
-    <div className="min-h-screen py-4 animate__animated animate__backInUp">
+    <div className="min-h-screen py-4 animate__animated animate__pulse">
+      <Helmet>Luxury Estate | Login</Helmet>
       <h2 className="text-3xl my-10 text-center font-platypi">Please Login</h2>
       <form
         onSubmit={handleLogin}

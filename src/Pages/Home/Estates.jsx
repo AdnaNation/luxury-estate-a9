@@ -19,7 +19,7 @@ const Estates = ({ estates }) => {
                   </a>
                   <p className="text-lg">Location: {estate.location}</p>
                 </div>
-                <div className="text-white text-md flex justify-between">
+                <div className="text-white text-md flex justify-between bg-red-600 opacity-60">
                   <p className="bg-purple-950 p-1 rounded-md">{estate.Area}</p>
                   <p className="bg-purple-950 p-1 rounded-md">
                     {" "}

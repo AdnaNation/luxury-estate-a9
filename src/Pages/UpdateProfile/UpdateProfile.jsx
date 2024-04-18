@@ -1,18 +1,23 @@
 import { updateProfile } from "firebase/auth";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const UpdateProfile = () => {
+  const [success, setSuccess] = useState("");
   const { user, name, setName, setPhotoURL, photoURL } =
     useContext(AuthContext);
 
-  const handleSave = async () => {
-    try {
-      await updateProfile(user, { displayName: name, photoURL });
-    } catch (error) {
-      console.error("Error updating profile:", error);
-    }
+  const handleSave = () => {
+    setSuccess("Profile updated successfully!");
+
+    return updateProfile(user, { displayName: name, photoURL })
+      .then(() => {
+        setSuccess("");
+      })
+      .catch((error) => {
+        console.error("Error updating profile:", error);
+      });
   };
 
   return (
@@ -30,7 +35,7 @@ const UpdateProfile = () => {
               Name:
             </label>
             <input
-              className="border rounded"
+              className="border rounded-md p-2"
               type="text"
               id="name"
               value={name}
@@ -43,13 +48,15 @@ const UpdateProfile = () => {
               Photo URL:
             </label>
             <input
-              className="border rounded"
+              className="border  rounded-md p-2"
               type="text"
               id="photoURL"
               value={photoURL}
               onChange={(e) => setPhotoURL(e.target.value)}
             />
           </div>
+
+          {success && <p className="text-green-700">{success}</p>}
 
           <br />
           <button className="btn bg-blue-950 text-white" type="submit">

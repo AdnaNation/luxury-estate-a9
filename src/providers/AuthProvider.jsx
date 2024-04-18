@@ -29,10 +29,12 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const googleSignIn = (googleProvider) => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const githubSignIn = (githubProvider) => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
   const logOut = () => {
@@ -43,9 +45,9 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
       setPhotoURL(currentUser.photoURL);
       setName(currentUser.displayName);
-      setLoading(false);
     });
     return () => {
       unSubscribe();
